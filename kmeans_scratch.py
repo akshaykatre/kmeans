@@ -2,6 +2,7 @@ from sklearn.metrics import pairwise_distances_argmin
 import numpy as np
 from sklearn.datasets.samples_generator import make_blobs
 from matplotlib import pyplot as plt 
+from mpl_toolkits import mplot3d
 
 def find_clusters(X, n_clusters, rseed=2):
     ## Choose random clusters
@@ -32,8 +33,14 @@ centers, labels = find_clusters(X,4)
 plt.scatter(X[:, 0], X[:, 1], c=labels,
             s=50, cmap='viridis')
 
-x = np.random.binomial(19,0.33, size=(200,3))
+## This works on 3-D as well - and N-D data - 
+## can be visualised as below 
 
-centers, labels = find_clusters(X,4)
-plt.scatter(x[:, 0], x[:, 1], c=labels,
+x = np.random.normal(2, 0.03, size=(200,3))
+x += np.random.normal(5, 0.02, size=(200,3))
+x += np.random.normal(-4, 0.01, size=(200,3))
+centers, labels = find_clusters(x,3)
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.scatter(x[:, 0], x[:, 1], x[:, 2], c=labels,
             s=50, cmap='viridis')
