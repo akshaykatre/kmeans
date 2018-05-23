@@ -1,3 +1,15 @@
+#/**
+ #* @file   kmeans_car.py
+ #* @author Akshay Katre <akshaykatre@gmail.com>
+ #* @date   Wed May 23, 2018
+ #*
+ #* @brief  This file looks at the car evaluation dataset
+ #*         http://archive.ics.uci.edu/ml/datasets/Car+Evaluation
+ #*         Attempts to use clustering algorithms on the data
+ #*
+#*/
+
+
 from sklearn.cluster import KMeans
 import numpy as np 
 from pandas import read_csv
